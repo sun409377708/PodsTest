@@ -13,6 +13,7 @@
 		770DCBC222263908006BF573 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 770DCBC122263908006BF573 /* Assets.xcassets */; };
 		770DCBC522263908006BF573 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770DCBC322263908006BF573 /* LaunchScreen.storyboard */; };
 		770DCBC822263908006BF573 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 770DCBC722263908006BF573 /* main.m */; };
+		770DCBD122263AC6006BF573 /* JQTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 770DCBD022263AC6006BF573 /* JQTool.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		770DCBC422263908006BF573 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		770DCBC622263908006BF573 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		770DCBC722263908006BF573 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		770DCBCF22263AC6006BF573 /* JQTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JQTool.h; sourceTree = "<group>"; };
+		770DCBD022263AC6006BF573 /* JQTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JQTool.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,7 @@
 		770DCBB722263908006BF573 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				770DCBCE22263A6A006BF573 /* JQTool */,
 				770DCBB822263908006BF573 /* AppDelegate.h */,
 				770DCBB922263908006BF573 /* AppDelegate.m */,
 				770DCBBB22263908006BF573 /* ViewController.h */,
@@ -69,6 +73,15 @@
 				770DCBC722263908006BF573 /* main.m */,
 			);
 			path = TestApp;
+			sourceTree = "<group>";
+		};
+		770DCBCE22263A6A006BF573 /* JQTool */ = {
+			isa = PBXGroup;
+			children = (
+				770DCBCF22263AC6006BF573 /* JQTool.h */,
+				770DCBD022263AC6006BF573 /* JQTool.m */,
+			);
+			path = JQTool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				770DCBD122263AC6006BF573 /* JQTool.m in Sources */,
 				770DCBBD22263908006BF573 /* ViewController.m in Sources */,
 				770DCBC822263908006BF573 /* main.m in Sources */,
 				770DCBBA22263908006BF573 /* AppDelegate.m in Sources */,
