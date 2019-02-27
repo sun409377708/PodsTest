@@ -4,8 +4,8 @@ Pod::Spec.new do |s|
 
 
 
-  s.name         = "JQTool"
-  s.version      = "1.0.5"
+  s.name         = "JQTool2"
+  s.version      = "1.0.6"
   s.summary      = "JQTool测试"
 
 
