@@ -34,7 +34,7 @@ Pod::Spec.new do |s|
 
   # s.public_header_files = "Classes/**/*.h"
 
-  s.frameworks = "Foundation, "UIKit""
+  s.frameworks = "Foundation, "UIKit"
   s.requires_arc = true
  # s.dependency 'AFNetworking'
 
