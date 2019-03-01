@@ -8,7 +8,6 @@
 
 #import "CCPCalendarManager.h"
 #import "CCPCalendarView.h"
-#import "AppDelegate.h"
 
 @interface CCPCalendarManager()
 @property (nonatomic, strong) CCPCalendarView *av;
@@ -18,8 +17,8 @@
 @synthesize av;
 
 - (UIWindow *)appWindow {
-    AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    return delegate.window;
+    id delegate = [UIApplication sharedApplication].delegate;
+    return [delegate window];
 }
 
 - (void)calendar {
