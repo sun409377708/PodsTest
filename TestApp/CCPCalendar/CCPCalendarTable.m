@@ -22,8 +22,9 @@
         self.separatorStyle = UITableViewCellSeparatorStyleNone;
         self.manager = manager;
         _exitViews = [NSMutableArray array];
+        __weak typeof(self)weakSelf = self;
         [self.dates enumerateObjectsUsingBlock:^(NSDate * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [self.exitViews addObject:@""];
+            [weakSelf.exitViews addObject:@""];
         }];
         [self registerClass:[CCPCalendarCellTableViewCell class] forCellReuseIdentifier:@"cell"];
         if (self.manager.isShowPast) {
