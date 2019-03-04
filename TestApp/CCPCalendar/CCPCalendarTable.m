@@ -23,7 +23,7 @@
         self.manager = manager;
         _exitViews = [NSMutableArray array];
         [self.dates enumerateObjectsUsingBlock:^(NSDate * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            [_exitViews addObject:@""];
+            [self.exitViews addObject:@""];
         }];
         [self registerClass:[CCPCalendarCellTableViewCell class] forCellReuseIdentifier:@"cell"];
         if (self.manager.isShowPast) {

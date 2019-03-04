@@ -31,7 +31,7 @@
         [[self appWindow] addSubview:av];
     }
     [UIView animateWithDuration:0.35 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
-        av.frame = CGRectMake(0, 0, main_width, main_height);
+        self->av.frame = CGRectMake(0, 0, main_width, main_height);
     } completion:nil];
 }
 
