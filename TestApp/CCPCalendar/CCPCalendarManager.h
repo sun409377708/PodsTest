@@ -14,6 +14,11 @@
 #define main_height [UIScreen mainScreen].bounds.size.height
 #define main_bounds [UIScreen mainScreen].bounds
 #define rgba(r,g,b,a)[UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a/1.0]
+#define IS_IPHONE_X_MORE (main_height >= 812.0f)
+#define TOP_MARGIN ((IS_IPHONE_X_MORE == YES) ? 24.0 : 0)
+
+#define normal_color (rgba(73, 81, 79, 1))
+#define dyt_btn_color (rgba(30, 163, 148, 1))
 
 //相对iphone6布局
 #define scale_w main_width / 375.0
@@ -90,6 +95,10 @@ typedef void(^completeBlock)(NSArray <__kindof NSObject *> *stArr);
  * 第一个元素为开始 第二个元素为结束 默认为空
  */
 @property (nonatomic, strong) NSArray<NSDate *> *dateEnableRange;
+/*
+ * 可用日期具体值
+ */
+@property (nonatomic, strong) NSArray<NSDate *> *dateEnableTime;
 /*
  * 日历创建时停留的位置
  */

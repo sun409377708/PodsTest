@@ -25,6 +25,7 @@
 		77B04A7C2227E2DC00169D9A /* CCPCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B04A702227E2DC00169D9A /* CCPCalendarView.m */; };
 		77B04A7D2227E2DC00169D9A /* NSDate+CCPCalendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B04A712227E2DC00169D9A /* NSDate+CCPCalendar.m */; };
 		77B04A7E2227E2DC00169D9A /* CCPCalendarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 77B04A722227E2DC00169D9A /* CCPCalendarButton.m */; };
+		77B04AA4222E458000169D9A /* CCPCalendar.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 77B04AA3222E458000169D9A /* CCPCalendar.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		77B04A712227E2DC00169D9A /* NSDate+CCPCalendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+CCPCalendar.m"; sourceTree = "<group>"; };
 		77B04A722227E2DC00169D9A /* CCPCalendarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPCalendarButton.m; sourceTree = "<group>"; };
 		77B04A732227E2DC00169D9A /* CCPCalendarHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPCalendarHeader.h; sourceTree = "<group>"; };
+		77B04AA3222E458000169D9A /* CCPCalendar.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CCPCalendar.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				77B04A662227E2DC00169D9A /* UILabel+CCPLabel.m */,
 				77B04A6F2227E2DC00169D9A /* UIView+CCPView.h */,
 				77B04A632227E2DC00169D9A /* UIView+CCPView.m */,
+				77B04AA3222E458000169D9A /* CCPCalendar.bundle */,
 			);
 			path = CCPCalendar;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 			files = (
 				770DCBC522263908006BF573 /* LaunchScreen.storyboard in Resources */,
 				770DCBC222263908006BF573 /* Assets.xcassets in Resources */,
+				77B04AA4222E458000169D9A /* CCPCalendar.bundle in Resources */,
 				770DCBC022263908006BF573 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

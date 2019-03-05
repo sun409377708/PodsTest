@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "SJQCalendar"
-  s.version      = "1.1.1"
+  s.version      = "1.1.2"
   s.summary      = "SJQCalendar日历"
 
 
@@ -16,7 +16,6 @@ Pod::Spec.new do |s|
 
   s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
-
 
 
   s.author             = { "SJQ" => "409377708@qq.com" }
@@ -30,6 +29,7 @@ Pod::Spec.new do |s|
 
 
   s.source_files  = "TestApp/CCPCalendar/*.{h,m}"
+  s.resources    = 'PicturePodsTest/PictureTools/CCPCalendar.bundle'
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"

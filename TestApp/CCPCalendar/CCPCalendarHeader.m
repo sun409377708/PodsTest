@@ -29,7 +29,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         l_gap = r_gap = scale_w * 20.0;
-        big_l_gap = big_r_gap = scale_w * 25.0;
+        big_l_gap = big_r_gap = scale_w * 35.0 + TOP_MARGIN;
         t_gap = scale_h * 15;
         self.backgroundColor = [UIColor clearColor];
         [self addObserver:self forKeyPath:@"manager.selectArr" options:NSKeyValueObservingOptionNew context:nil];
@@ -43,9 +43,10 @@
     [self showSelect];
     [self weeks];
     [self line];
+
     CGFloat h = [self getSupH];
-    UIView *bLine = [[UIView alloc] initWithFrame:CGRectMake(0, h, main_width, 1)];
-    bLine.backgroundColor = rgba(255, 255, 255, 0.2);
+    UIView *bLine = [[UIView alloc] initWithFrame:CGRectMake(0, h+10, main_width, 10)];
+    bLine.backgroundColor = rgba(241,241,241, 1);
     [self addSubview:bLine];
 }
 
@@ -54,34 +55,39 @@
  */
 - (void)functionBtns {
     l_btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [l_btn setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
-    l_btn.titleLabel.font = [UIFont systemFontOfSize:scale_w * 20];
-    l_btn.frame = CGRectMake(l_gap, t_gap + 5, scale_w * 50, scale_w * 25);
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource: @"CCPCalendar" ofType :@"bundle"];
+    NSBundle *resourceBundle = [NSBundle bundleWithPath:bundlePath];
+    UIImage *image = [UIImage imageWithContentsOfFile:[resourceBundle pathForResource:@"return_img@3x" ofType:@"png"]];
+    [l_btn setImage:image forState:UIControlStateNormal];
+    [l_btn setTitleColor:normal_color forState:UIControlStateNormal];
+    l_btn.titleLabel.font = [UIFont systemFontOfSize:scale_w * 17];
+    l_btn.frame = CGRectMake(l_gap, big_l_gap, scale_w * 50, scale_w * 25);
     [l_btn addTarget:self action:@selector(close) forControlEvents:UIControlEventTouchUpInside];
     [l_btn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 30)];
     [self addSubview:l_btn];
     r_btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [r_btn setTitle:@"清除" forState:UIControlStateNormal];
     r_btn.titleLabel.font = [UIFont systemFontOfSize:14.0 * scale_w];
-    r_btn.titleLabel.textColor = [UIColor whiteColor];
+    [r_btn setTitleColor:normal_color forState:UIControlStateNormal];;
     [r_btn addTarget:self action:@selector(clear) forControlEvents:UIControlEventTouchUpInside];
-    r_btn.frame = CGRectMake(main_width - r_gap - [self r_btn_w], t_gap + 5, [self r_btn_w], scale_w * 25);
+    r_btn.frame = CGRectMake(main_width - r_gap - [self r_btn_w], big_l_gap, [self r_btn_w], scale_w * 25);
     r_btn.hidden = YES;
-    [self addSubview:r_btn];
+//    [self addSubview:r_btn];
+
 }
 
 //中间显示大字
 - (void)showSelect {
     l_label = [[UILabel alloc] init];
     l_label.font = [UIFont systemFontOfSize:scale_w * 20];
-    l_label.textColor = [UIColor whiteColor];
+    l_label.textColor = normal_color;
     l_label.textAlignment = NSTextAlignmentLeft;
     l_label.numberOfLines = 2;
     [self addSubview:l_label];
     if (self.manager.selectType == select_type_multiple) {
         r_label = [[UILabel alloc] init];
         r_label.font = l_label.font;
-        r_label.textColor = [UIColor whiteColor];
+        r_label.textColor = normal_color;
         r_label.textAlignment = NSTextAlignmentRight;
         r_label.numberOfLines = 2;
         [self addSubview:r_label];
@@ -91,16 +97,17 @@
 
 //星期
 - (void)weeks {
-    NSArray *arr = @[@"SUN", @"Mon", @"TUE", @"WED", @"THU", @"FRI", @"SAT"];
+    NSArray *arr = @[@"日", @"一", @"二", @"三", @"四", @"五", @"六"];
+
     CGFloat w = main_width / 7;
     CGFloat y;
     for (int idx = 0; idx < arr.count; idx ++) {
         NSString *week = arr[idx];
-        UILabel *weekLabel = [[UILabel alloc] initWithFrame:CGRectMake(w * idx , CGRectGetMaxY(l_label.frame) + 15 * scale_h, w, 25 * scale_h)];
+        UILabel *weekLabel = [[UILabel alloc] initWithFrame:CGRectMake(w * idx , CGRectGetMaxY(l_label.frame) + 25 * scale_h, w, 25 * scale_h)];
         y = CGRectGetMaxY(weekLabel.frame);
         weekLabel.textAlignment = NSTextAlignmentCenter;
         weekLabel.font = [UIFont systemFontOfSize:14 * scale_h];
-        weekLabel.textColor = [UIColor whiteColor];
+        weekLabel.textColor = normal_color;
         weekLabel.text = week;
         [self addSubview:weekLabel];
     }
@@ -119,24 +126,25 @@
         CAShapeLayer *shapeL = [CAShapeLayer layer];
         shapeL.path = path.CGPath;
         shapeL.lineWidth = 0.5;
-        shapeL.strokeColor = [UIColor whiteColor].CGColor;
+        shapeL.strokeColor = normal_color.CGColor;
         [self.layer addSublayer:shapeL];
     }
 }
 
 - (CGFloat)r_btn_w {
     NSString *tt = r_btn.titleLabel.text;
-    CGRect rect = [tt boundingRectWithSize:CGSizeMake(1000, 25 * scale_w) options:NSStringDrawingUsesFontLeading attributes:@{NSForegroundColorAttributeName : [UIColor whiteColor], NSFontAttributeName : [UIFont systemFontOfSize:14 * scale_w]} context:nil];
+    CGRect rect = [tt boundingRectWithSize:CGSizeMake(1000, 25 * scale_w) options:NSStringDrawingUsesFontLeading attributes:@{NSForegroundColorAttributeName : normal_color, NSFontAttributeName : [UIFont systemFontOfSize:14 * scale_w]} context:nil];
     return rect.size.width;
 }
 
 - (void)displayLabel {
-    CGFloat top = 15 * scale_h;
-    CGFloat h = 48 * scale_h;
+    CGFloat top = big_l_gap;
+    CGFloat h = 24 * scale_h;
     if (![self.manager.startTitle isEqualToString:l_label.text]) {
         l_label.text = self.manager.startTitle;
         CGFloat w = [l_label widthBy:h];
-        l_label.frame = CGRectMake(big_l_gap, CGRectGetMaxY(l_btn.frame) + top, w, h);
+        CGFloat left = (main_width - w) * 0.5;
+        l_label.frame = CGRectMake(left, top, w, h);
     }
     if (![self.manager.endTitle isEqualToString:r_label.text]) {
         r_label.text = self.manager.endTitle;
@@ -167,19 +175,19 @@
         else if (arr.count == 1) {
             self.manager.endTitle = nil;
             NSDate *date = arr.firstObject;
-            self.manager.startTitle = [NSString stringWithFormat:@"%ld月%02ld日\n%@",[date getMonth],[date getDay],[date weekString]];
+            self.manager.startTitle = [NSString stringWithFormat:@"%ld月%02ld日%@",[date getMonth],[date getDay],[date weekString]];
             
         }
         else if (arr.count == 2){
             NSDate *date1 = arr.firstObject;
             NSDate *date2 = arr[1];
-            self.manager.startTitle = [NSString stringWithFormat:@"%ld月%02ld日\n%@",[date1 getMonth],[date1 getDay],[date1 weekString]];
-            self.manager.endTitle = [NSString stringWithFormat:@"%ld月%02ld日\n%@",[date2 getMonth],[date2 getDay],[date2 weekString]];
+            self.manager.startTitle = [NSString stringWithFormat:@"%ld月%02ld日%@",[date1 getMonth],[date1 getDay],[date1 weekString]];
+            self.manager.endTitle = [NSString stringWithFormat:@"%ld月%02ld日%@",[date2 getMonth],[date2 getDay],[date2 weekString]];
         }
         [self displayLabel];
     }
     else if ([keyPath isEqualToString:@"manager.startTitle"]) {
-        if (![self.manager.startTitle isEqualToString:[@"开始" stringByAppendingFormat:@"\n%@",@"日期"]]) {
+        if (![self.manager.startTitle isEqualToString:[@"开始" stringByAppendingFormat:@"%@",@"日期"]]) {
             r_btn.hidden = NO;
         }
         else {

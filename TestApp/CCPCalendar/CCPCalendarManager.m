@@ -76,21 +76,21 @@
 
 - (UIColor *)disable_text_color {
     if (!_disable_text_color) {
-        _disable_text_color = rgba(255, 255, 2255, 0.3);
+        _disable_text_color = rgba(165, 173, 172, 1);
     }
     return _disable_text_color;
 }
 
 - (UIColor *)normal_text_color {
     if (!_normal_bg_color) {
-        _normal_bg_color = rgba(255.0, 255.0, 255.0, 1.0);
+        _normal_bg_color = rgba(73, 81, 79, 1);
     }
     return _normal_text_color;
 }
 
 - (UIColor *)selected_text_color {
     if (!_selected_text_color) {
-        _selected_text_color = rgba(35, 59, 97, 1.0);
+        _selected_text_color = rgba(255, 255, 255, 1.0);
     }
     return _selected_text_color;
 }
@@ -107,6 +107,13 @@
         _dateEnableRange = [NSArray array];
     }
     return _dateEnableRange;
+}
+
+- (NSArray<NSDate *> *)dateEnableTime {
+    if (!_dateEnableTime) {
+        _dateEnableTime = [NSArray array];
+    }
+    return _dateEnableTime;
 }
 
 - (NSString *)endTitle {

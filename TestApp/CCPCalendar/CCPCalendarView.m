@@ -104,13 +104,13 @@
     CGFloat t_gap = 15 * scale_h;
     CGFloat btnH = 50 * scale_h;
     UIView *bottomV = [[UIView alloc] init];
-    bottomV.backgroundColor = [UIColor clearColor];
+    bottomV.backgroundColor = [UIColor whiteColor];
     saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    saveBtn.backgroundColor = rgba(255, 255, 255, 0.2);
+    saveBtn.backgroundColor = rgba(255, 255, 255, 0.8);
     saveBtn.frame = CGRectMake(0, t_gap, main_width, btnH);
     [saveBtn setTitle:@"OK"  forState:UIControlStateNormal];
     [saveBtn setTitle:@"OK"  forState:UIControlStateDisabled];
-    [saveBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [saveBtn setTitleColor:normal_color forState:UIControlStateNormal];
     [saveBtn setTitleColor:rgba(255, 255, 255, 0.7) forState:UIControlStateDisabled];
 //    saveBtn.layer.cornerRadius = 5 * scale_w;
     saveBtn.titleLabel.font = [UIFont systemFontOfSize:20 * scale_h];
@@ -128,7 +128,7 @@
     [self addSubview:table];
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setTitle:@"create date" forState:UIControlStateNormal];
-    btn.layer.borderColor = [UIColor whiteColor].CGColor;
+    btn.layer.borderColor = normal_color.CGColor;
     btn.layer.borderWidth = 1.0;
     btn.layer.cornerRadius = 3.0;
     btn.frame = CGRectMake(main_width - 120, CGRectGetMinY(table.frame) + 10, 110, 30);

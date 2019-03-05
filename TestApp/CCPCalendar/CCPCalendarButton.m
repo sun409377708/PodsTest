@@ -52,7 +52,7 @@
 
 - (void)ccpDispaly {
     if ([self.date isSameTo:self.manager.createDate]) {
-        [self setTitleColor:rgba(255, 30, 30, 1.0) forState:UIControlStateNormal];
+        [self setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     }
     else {
         [self setTitleColor:self.manager.normal_text_color forState:UIControlStateNormal];
@@ -77,6 +77,15 @@
             self.enabled = NO;
         }
     }
+    if (self.manager.dateEnableTime.count > 0) {
+        self.enabled = NO;
+        for (int i = 0; i < self.manager.dateEnableTime.count; i++) {
+            if ([self.date isSameTo:self.manager.dateEnableTime[i]]) {
+                self.enabled = YES;
+            }
+        }
+    }
+    
     [self cirPath];
     if (self.manager.createEndDate) {
         if ([self.manager.createEndDate earlyThan:self.date] || [self.manager.createEndDate isSameTo:self.date]) {
@@ -88,7 +97,7 @@
     }
     if ([self.date isSameTo:self.manager.selectDate]) {
         self.selected = YES;
-        sl.fillColor = rgba(255, 255, 255, 1.0).CGColor;
+        sl.fillColor = dyt_btn_color.CGColor;
         if (self.manager.click) {
             self.manager.click(self);
         }
@@ -117,7 +126,7 @@
     id obj = change[NSKeyValueChangeNewKey];
     if ([keyPath isEqualToString:@"selected"]) {
         if ([obj boolValue]) {
-            sl.fillColor = [UIColor whiteColor].CGColor;
+            sl.fillColor = dyt_btn_color.CGColor;
         }
         else {
             sl.fillColor = [UIColor clearColor].CGColor;
@@ -147,7 +156,7 @@
     }
     else if ([keyPath isEqualToString:@"backgroundColor"]) {
         UIColor *color = (UIColor *)obj;
-        if (color == [UIColor whiteColor]) {
+        if (color == dyt_btn_color) {
             
             [self setTitleColor:self.manager.selected_text_color forState:UIControlStateNormal];
         }

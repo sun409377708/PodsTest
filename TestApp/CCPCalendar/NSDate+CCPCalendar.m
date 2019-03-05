@@ -155,7 +155,8 @@ static const void *ccp_calendar = &ccp_calendar;
 
 - (NSString *)weekString {
     NSDateComponents *compts = [self compts:self];
-    NSArray *weeks = @[@"SUN", @"Mon", @"TUE", @"WED", @"THU", @"FRI", @"SAT"];
+//    NSArray *weeks = @[@"SUN", @"Mon", @"TUE", @"WED", @"THU", @"FRI", @"SAT"];
+    NSArray *weeks = @[@"星期日", @"星期一", @"星期二", @"星期三", @"星期四", @"星期五", @"星期六"];
     return weeks[compts.weekday - 1];
 }
 

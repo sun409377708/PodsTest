@@ -22,26 +22,21 @@
     self.backgroundColor = [UIColor clearColor];
     self.contentView.backgroundColor = [UIColor clearColor];
     CGFloat t_gap = 15 * scale_h;
-    CGFloat l_gap = 25 * scale_w;
+//    CGFloat l_gap = 25 * scale_w;
     CGFloat label_h = 24 * scale_h;
     UILabel *bigLabel = [[UILabel alloc] init];
     [bigLabel setFont:[UIFont boldSystemFontOfSize:bigLabel.font.pointSize]];
     NSString *label_text;
     
     NSString *month = [NSString stringWithFormat:@"%02ld",(long)[date getMonth]];
+    label_text = [NSString stringWithFormat:@"%ld年%@月",(long)[date getYear],month];
     
-    if ([date getYear]==[self.manager.createDate getYear]) {
-        month = [NSString stringWithFormat:@"%@月",month];
-        label_text = month;
-    }
-    else {
-        label_text = [NSString stringWithFormat:@"%ld年%@",(long)[date getYear],month];
-    }
     bigLabel.text = label_text;
     bigLabel.backgroundColor = [UIColor clearColor];
     CGFloat label_w = [bigLabel widthBy:label_h];
+    CGFloat l_gap = (main_width - label_w) * 0.5;
     bigLabel.frame = CGRectMake(l_gap, t_gap, label_w, label_h);
-    bigLabel.textColor = [UIColor whiteColor];
+    bigLabel.textColor = normal_color;
     [dateSupV addSubview:bigLabel];
     NSInteger week = [date firstDay_week];
     NSInteger week_last = [date lastDay_week];
