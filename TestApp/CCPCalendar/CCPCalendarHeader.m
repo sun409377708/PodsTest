@@ -57,7 +57,7 @@
     l_btn = [UIButton buttonWithType:UIButtonTypeCustom];
     NSString *bundlePath = [[NSBundle mainBundle] pathForResource: @"CCPCalendar" ofType :@"bundle"];
     NSBundle *resourceBundle = [NSBundle bundleWithPath:bundlePath];
-    UIImage *image = [UIImage imageWithContentsOfFile:[resourceBundle pathForResource:@"return_img@3x" ofType:@"png"]];
+    UIImage *image = [UIImage imageWithContentsOfFile:[resourceBundle pathForResource:@"calendar_return_img" ofType:@"png"]];
     [l_btn setImage:image forState:UIControlStateNormal];
     [l_btn setTitleColor:normal_color forState:UIControlStateNormal];
     l_btn.titleLabel.font = [UIFont systemFontOfSize:scale_w * 17];

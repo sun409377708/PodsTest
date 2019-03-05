@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "UILabel+CCPLabel.h"
+#import "CCPCalendarModel.h"
 
 #define main_width  [UIScreen mainScreen].bounds.size.width
 #define main_height [UIScreen mainScreen].bounds.size.height

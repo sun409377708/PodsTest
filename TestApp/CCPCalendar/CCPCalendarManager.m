@@ -25,6 +25,7 @@
     if (!av) {
         av = [[CCPCalendarView alloc] init];
         av.frame = CGRectMake(0, main_height, main_width, main_height);
+        self.normal_text_color = normal_color;
         av.manager = self;
         av.backgroundColor = [UIColor whiteColor];
         [av initSubviews];
