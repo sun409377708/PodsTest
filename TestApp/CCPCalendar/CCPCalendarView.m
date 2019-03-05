@@ -101,10 +101,10 @@
  * 底部
  */
 - (void)createBottomView {
-    CGFloat t_gap = 15 * scale_h;
+    CGFloat t_gap = 0;
     CGFloat btnH = 50 * scale_h;
     UIView *bottomV = [[UIView alloc] init];
-    bottomV.backgroundColor = [UIColor whiteColor];
+    bottomV.backgroundColor = rgba(0, 0, 0, 0.8);
     saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     saveBtn.backgroundColor = rgba(255, 255, 255, 0.8);
     saveBtn.frame = CGRectMake(0, t_gap, main_width, btnH);
@@ -116,7 +116,9 @@
     saveBtn.titleLabel.font = [UIFont systemFontOfSize:20 * scale_h];
     [saveBtn addTarget:self action:@selector(compelet) forControlEvents:UIControlEventTouchUpInside];
     [bottomV addSubview:saveBtn];
-    CGFloat H = bottomH = [bottomV getSupH];
+//    CGFloat H = bottomH = [bottomV getSupH];
+    CGFloat H = bottomH = 0;
+
     bottomV.frame = CGRectMake(0, main_height - H, main_width, H);
     [self addSubview:bottomV];
     
@@ -134,7 +136,6 @@
     btn.frame = CGRectMake(main_width - 120, CGRectGetMinY(table.frame) + 10, 110, 30);
     [btn addTarget:self action:@selector(scrToCreate) forControlEvents:UIControlEventTouchUpInside];
     btn.backgroundColor = [UIColor clearColor];
-//    [self addSubview:btn];
 }
 
 - (void)scrToCreate {

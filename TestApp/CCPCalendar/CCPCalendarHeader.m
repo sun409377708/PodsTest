@@ -33,7 +33,7 @@
         t_gap = scale_h * 15;
         self.backgroundColor = [UIColor clearColor];
         [self addObserver:self forKeyPath:@"manager.selectArr" options:NSKeyValueObservingOptionNew context:nil];
-        [self addObserver:self forKeyPath:@"manager.startTitle" options:NSKeyValueObservingOptionNew context:nil];
+//        [self addObserver:self forKeyPath:@"manager.startTitle" options:NSKeyValueObservingOptionNew context:nil];
     }
     return self;
 }

@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.view.backgroundColor = [UIColor whiteColor];
+//    self.view.backgroundColor = [UIColor whiteColor];
     
     // 定义一个遵循某个历法的日历对象 NSGregorianCalendar国际历法
     NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -66,7 +66,7 @@
     CCPCalendarManager *manager = [CCPCalendarManager new];
     manager.normal_text_color = normal_color;
 
-    manager.selectDate = [NSDate date];
+//    manager.selectDate = [NSDate date];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyy-MM-dd";
     NSDate *startDate = [formatter dateFromString:@"2019-03-07"];
@@ -77,10 +77,11 @@
 
     
 //    manager.dateEnableRange = @[startDate, endDate];
-    manager.dateEnableTime = @[startDate, endDate, otherDate];
+//    manager.dateEnableTime = @[startDate, endDate, otherDate];
     
     [manager show_signal:^(NSArray<__kindof NSObject *> *stArr) {
         
+      
     }];
 }
 

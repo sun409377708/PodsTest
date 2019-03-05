@@ -26,7 +26,7 @@
         av = [[CCPCalendarView alloc] init];
         av.frame = CGRectMake(0, main_height, main_width, main_height);
         av.manager = self;
-        av.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background-date"]];
+        av.backgroundColor = [UIColor whiteColor];
         [av initSubviews];
         [[self appWindow] addSubview:av];
     }
@@ -83,7 +83,7 @@
 
 - (UIColor *)normal_text_color {
     if (!_normal_bg_color) {
-        _normal_bg_color = rgba(73, 81, 79, 1);
+        _normal_bg_color = normal_color;
     }
     return _normal_text_color;
 }
@@ -97,7 +97,7 @@
 
 - (NSString *)startTitle {
     if (!_startTitle) {
-        _startTitle = [@"开始" stringByAppendingFormat:@"\n%@",@"日期"];
+        _startTitle = @"选择日期";
     }
     return _startTitle;
 }

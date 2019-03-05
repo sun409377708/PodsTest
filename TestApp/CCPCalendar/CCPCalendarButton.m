@@ -98,9 +98,9 @@
     if ([self.date isSameTo:self.manager.selectDate]) {
         self.selected = YES;
         sl.fillColor = dyt_btn_color.CGColor;
-        if (self.manager.click) {
-            self.manager.click(self);
-        }
+//        if (self.manager.click) {
+//            self.manager.click(self);
+//        }
     }
 
 }
