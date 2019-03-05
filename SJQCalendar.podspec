@@ -29,7 +29,7 @@ Pod::Spec.new do |s|
 
 
   s.source_files  = "TestApp/CCPCalendar/*.{h,m}"
-  s.resources    = 'PicturePodsTest/PictureTools/CCPCalendar.bundle'
+  s.resources    = 'TestApp/CCPCalendar/CCPCalendar.bundle'
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
