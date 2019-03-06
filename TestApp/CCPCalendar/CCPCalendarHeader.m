@@ -58,7 +58,13 @@
     NSString *bundlePath = [[NSBundle mainBundle] pathForResource: @"CCPCalendar" ofType :@"bundle"];
     NSBundle *resourceBundle = [NSBundle bundleWithPath:bundlePath];
     UIImage *image = [UIImage imageWithContentsOfFile:[resourceBundle pathForResource:@"calendar_return_img" ofType:@"png"]];
-    [l_btn setImage:image forState:UIControlStateNormal];
+    
+    if (self.manager.nav_back_img) {
+        [l_btn setImage:self.manager.nav_back_img forState:UIControlStateNormal];
+    }else {
+        [l_btn setImage:image forState:UIControlStateNormal];
+    }
+    
     [l_btn setTitleColor:normal_color forState:UIControlStateNormal];
     l_btn.titleLabel.font = [UIFont systemFontOfSize:scale_w * 17];
     l_btn.frame = CGRectMake(l_gap, big_l_gap, scale_w * 50, scale_w * 25);

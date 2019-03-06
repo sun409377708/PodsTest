@@ -65,7 +65,8 @@
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     CCPCalendarManager *manager = [CCPCalendarManager new];
     manager.normal_text_color = [UIColor greenColor];
-
+    manager.nav_back_img = [UIImage imageNamed:@"nav_blue_back"];
+    
 //    manager.selectDate = [NSDate date];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"yyyy-MM-dd";

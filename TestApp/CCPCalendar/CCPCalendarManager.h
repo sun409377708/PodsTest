@@ -54,6 +54,8 @@ typedef void(^completeBlock)(NSArray <__kindof NSObject *> *stArr);
 @property (nonatomic, strong) NSString *touch_img;
 //选中状态(点击 放开) 图片名
 @property (nonatomic, strong) NSString *touched_img;
+//导航栏返回按钮 图片名
+@property (nonatomic, strong) UIImage *nav_back_img;
 //默认背景颜色
 @property (nonatomic, strong) UIColor *normal_bg_color;
 //选中背景颜色
