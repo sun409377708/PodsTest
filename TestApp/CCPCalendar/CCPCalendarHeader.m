@@ -190,7 +190,7 @@
             self.manager.startTitle = [NSString stringWithFormat:@"%ld月%02ld日%@",[date1 getMonth],[date1 getDay],[date1 weekString]];
             self.manager.endTitle = [NSString stringWithFormat:@"%ld月%02ld日%@",[date2 getMonth],[date2 getDay],[date2 weekString]];
         }
-        [self displayLabel];
+//        [self displayLabel];
     }
     else if ([keyPath isEqualToString:@"manager.startTitle"]) {
         if (![self.manager.startTitle isEqualToString:[@"开始" stringByAppendingFormat:@"%@",@"日期"]]) {
