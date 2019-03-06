@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "SJQCalendar"
-  s.version      = "1.1.5"
+  s.version      = "1.1.6"
   s.summary      = "SJQCalendar日历"
 
 
