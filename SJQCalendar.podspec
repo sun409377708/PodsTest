@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.summary      = "SJQCalendar日历"
 
 
-  s.description  = "自定义日历"
+  s.description  = "自定义日历去除标题变化"
 
   s.homepage     = "https://github.com/sun409377708/PodsTest"
 
