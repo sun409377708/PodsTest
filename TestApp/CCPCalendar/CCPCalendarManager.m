@@ -91,7 +91,7 @@
 
 - (UIColor *)selected_text_color {
     if (!_selected_text_color) {
-        _selected_text_color = rgba(255, 255, 255, 1.0);
+        _selected_text_color = normal_color;
     }
     return _selected_text_color;
 }
