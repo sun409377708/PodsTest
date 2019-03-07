@@ -132,41 +132,8 @@
         for (CCPCalendarButton *obj in ws.manager.selectBtns) {
             [[ws.manager mutableArrayValueForKey:@"selectArr"] addObject:obj.date];
         }
-        
-        // 点击按钮直接选中并退出
-        [ws complet];
     };
 }
-
-- (void)complet {
-    if (self.manager.complete) {
-        NSMutableArray *marr = [NSMutableArray array];
-        if (self.manager.selectType == select_type_single) {
-            if (self.manager.selectArr.count == 0) {
-                if (self.manager.close) {
-                    self.manager.close();
-                }
-                return;
-            }
-        }
-        for (NSDate *date in self.manager.selectArr) {
-            NSString *year = [NSString stringWithFormat:@"%ld",(long)[date getYear]];
-            NSString *month = [NSString stringWithFormat:@"%02ld",(long)[date getMonth]];
-            NSString *day = [NSString stringWithFormat:@"%02ld",(long)[date getDay]];
-            NSString *weekString = [date weekString];
-            NSInteger week = [date getWeek];
-            NSString *ccpDate = [NSString stringWithFormat:@"%@-%@-%@",year,month,day];
-            NSArray *arr = @[ccpDate,year,month,day,weekString,@(week)];
-            CCPCalendarModel *model = [[CCPCalendarModel alloc] initWithArray:arr];
-            [marr addObject:model];
-        }
-        self.manager.complete(marr);
-        if (self.manager.close) {
-            self.manager.close();
-        }
-    }
-}
-
 
 
 @end

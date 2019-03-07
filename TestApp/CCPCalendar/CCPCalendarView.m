@@ -104,9 +104,9 @@
     CGFloat t_gap = 0;
     CGFloat btnH = 50 * scale_h;
     UIView *bottomV = [[UIView alloc] init];
-    bottomV.backgroundColor = rgba(0, 0, 0, 0.8);
+    bottomV.backgroundColor = [UIColor whiteColor];
     saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    saveBtn.backgroundColor = rgba(255, 255, 255, 0.8);
+    saveBtn.backgroundColor = rgba(241, 241, 241, 1);
     saveBtn.frame = CGRectMake(0, t_gap, main_width, btnH);
     [saveBtn setTitle:@"OK"  forState:UIControlStateNormal];
     [saveBtn setTitle:@"OK"  forState:UIControlStateDisabled];
@@ -116,8 +116,8 @@
     saveBtn.titleLabel.font = [UIFont systemFontOfSize:20 * scale_h];
     [saveBtn addTarget:self action:@selector(compelet) forControlEvents:UIControlEventTouchUpInside];
     [bottomV addSubview:saveBtn];
-//    CGFloat H = bottomH = [bottomV getSupH];
-    CGFloat H = bottomH = 0;
+    CGFloat H = bottomH = [bottomV getSupH];
+//    CGFloat H = bottomH = 0;
 
     bottomV.frame = CGRectMake(0, main_height - H, main_width, H);
     [self addSubview:bottomV];
