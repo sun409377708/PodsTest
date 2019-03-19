@@ -108,12 +108,12 @@
     saveBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     saveBtn.backgroundColor = rgba(241, 241, 241, 1);
     saveBtn.frame = CGRectMake(0, t_gap, main_width, btnH);
-    [saveBtn setTitle:@"OK"  forState:UIControlStateNormal];
-    [saveBtn setTitle:@"OK"  forState:UIControlStateDisabled];
+    [saveBtn setTitle:@"确认"  forState:UIControlStateNormal];
+    [saveBtn setTitle:@"确认"  forState:UIControlStateDisabled];
     [saveBtn setTitleColor:normal_color forState:UIControlStateNormal];
     [saveBtn setTitleColor:rgba(255, 255, 255, 0.7) forState:UIControlStateDisabled];
 //    saveBtn.layer.cornerRadius = 5 * scale_w;
-    saveBtn.titleLabel.font = [UIFont systemFontOfSize:20 * scale_h];
+    saveBtn.titleLabel.font = [UIFont systemFontOfSize:16 * scale_h];
     [saveBtn addTarget:self action:@selector(compelet) forControlEvents:UIControlEventTouchUpInside];
     [bottomV addSubview:saveBtn];
     CGFloat H = bottomH = [bottomV getSupH];
