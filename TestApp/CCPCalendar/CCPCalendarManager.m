@@ -47,6 +47,8 @@
                 if (ws.clean) {
                     ws.clean();
                 }
+                
+                [weekAV removeFromSuperview];
             }];
         };
     }

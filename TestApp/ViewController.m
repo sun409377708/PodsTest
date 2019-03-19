@@ -10,6 +10,8 @@
 #import "CCPCalendarManager.h"
 
 @interface ViewController ()
+@property (nonatomic, strong) CCPCalendarManager *manager;
+@property (nonatomic, strong) NSDate *currentDate;
 
 @end
 
@@ -63,28 +65,42 @@
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
     CCPCalendarManager *manager = [CCPCalendarManager new];
-    manager.normal_text_color = [UIColor greenColor];
+    manager.normal_text_color = normal_color;
     manager.nav_back_img = [UIImage imageNamed:@"nav_blue_back"];
-    
-//    manager.selectDate = [NSDate date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"yyyy-MM-dd";
-    NSDate *startDate = [formatter dateFromString:@"2019-03-07"];
-    NSDate *endDate = [formatter dateFromString:@"2019-03-08"];
-    NSDate *otherDate = [formatter dateFromString:@"2019-04-27"];
+    if (self.currentDate) {
+        manager.selectDate = self.currentDate;
+    }else {
+        manager.selectDate = [NSDate date];
+    }
 
-    manager.selectDate = startDate;
-
-    
-//    manager.dateEnableRange = @[startDate, endDate];
-//    manager.dateEnableTime = @[startDate, endDate, otherDate];
     
     [manager show_signal:^(NSArray<__kindof NSObject *> *stArr) {
+        CCPCalendarModel *model = stArr.firstObject;
         
-      
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyy-MM-dd";
+        NSDate *startDate = [formatter dateFromString:model.ccpDate];
+        self.currentDate = startDate;
     }];
 }
 
+- (CCPCalendarManager *)manager {
+    if (!_manager) {
+        _manager = [CCPCalendarManager new];
+        _manager.normal_text_color = normal_color;
+        _manager.nav_back_img = [UIImage imageNamed:@"nav_blue_back"];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyy-MM-dd";
+        NSDate *startDate = [formatter dateFromString:@"2019-03-20"];
+        NSDate *endDate = [formatter dateFromString:@"2019-03-08"];
+        NSDate *otherDate = [formatter dateFromString:@"2019-04-27"];
 
+        _manager.selectDate = startDate;
+
+    }
+    return _manager;
+}
 @end
