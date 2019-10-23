@@ -46,7 +46,7 @@
 
     CGFloat h = [self getSupH];
     UIView *bLine = [[UIView alloc] initWithFrame:CGRectMake(0, h+10, main_width, 10)];
-    bLine.backgroundColor = rgba(241,241,241, 1);
+    bLine.backgroundColor = dyt_bg_color;
     [self addSubview:bLine];
 }
 
@@ -72,13 +72,13 @@
     [l_btn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 30)];
     [self addSubview:l_btn];
     r_btn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [r_btn setTitle:@"清除" forState:UIControlStateNormal];
+    [r_btn setTitle:@"确认修改" forState:UIControlStateNormal];
     r_btn.titleLabel.font = [UIFont systemFontOfSize:14.0 * scale_w];
-    [r_btn setTitleColor:normal_color forState:UIControlStateNormal];;
-    [r_btn addTarget:self action:@selector(clear) forControlEvents:UIControlEventTouchUpInside];
+    [r_btn setTitleColor:dyt_btn_color forState:UIControlStateNormal];;
+    [r_btn addTarget:self action:@selector(actionChange:) forControlEvents:UIControlEventTouchUpInside];
     r_btn.frame = CGRectMake(main_width - r_gap - [self r_btn_w], big_l_gap, [self r_btn_w], scale_w * 25);
-    r_btn.hidden = YES;
-//    [self addSubview:r_btn];
+//    r_btn.hidden = YES;
+    [self addSubview:r_btn];
 
 }
 
@@ -165,10 +165,37 @@
     }
 }
 
-- (void)clear {
-    [[self.manager mutableArrayValueForKey:@"selectArr"] removeAllObjects];
-    if (self.manager.clean) {
-        self.manager.clean();
+- (void)actionChange:(UIButton *)sender {
+//    [[self.manager mutableArrayValueForKey:@"selectArr"] removeAllObjects];
+//    if (self.manager.clean) {
+//        self.manager.clean();
+//    }
+    
+    if (self.manager.complete) {
+        NSMutableArray *marr = [NSMutableArray array];
+        if (self.manager.selectType == select_type_single) {
+            if (self.manager.selectArr.count == 0) {
+                if (self.manager.close) {
+                    self.manager.close();
+                }
+                return;
+            }
+        }
+        for (NSDate *date in self.manager.selectArr) {
+            NSString *year = [NSString stringWithFormat:@"%ld",(long)[date getYear]];
+            NSString *month = [NSString stringWithFormat:@"%02ld",(long)[date getMonth]];
+            NSString *day = [NSString stringWithFormat:@"%02ld",(long)[date getDay]];
+            NSString *weekString = [date weekString];
+            NSInteger week = [date getWeek];
+            NSString *ccpDate = [NSString stringWithFormat:@"%@-%@-%@",year,month,day];
+            NSArray *arr = @[ccpDate,year,month,day,weekString,@(week)];
+            CCPCalendarModel *model = [[CCPCalendarModel alloc] initWithArray:arr];
+            [marr addObject:model];
+        }
+        self.manager.complete(marr);
+        if (self.manager.close) {
+            self.manager.close();
+        }
     }
 }
 
@@ -194,10 +221,10 @@
     }
     else if ([keyPath isEqualToString:@"manager.startTitle"]) {
         if (![self.manager.startTitle isEqualToString:[@"开始" stringByAppendingFormat:@"%@",@"日期"]]) {
-            r_btn.hidden = NO;
+//            r_btn.hidden = NO;
         }
         else {
-            r_btn.hidden = YES;
+//            r_btn.hidden = YES;
         }
     }
 }

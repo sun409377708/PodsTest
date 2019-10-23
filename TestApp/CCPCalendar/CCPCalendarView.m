@@ -39,7 +39,7 @@
 - (void)initSubviews {
     NSCAssert(self.manager, @"manager不可为空");
     [self headerView];
-    [self createBottomView];
+//    [self createBottomView];
     [self createScr];
 }
 

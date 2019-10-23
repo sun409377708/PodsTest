@@ -18,9 +18,9 @@
 #define IS_IPHONE_X_MORE (main_height >= 812.0f)
 #define TOP_MARGIN ((IS_IPHONE_X_MORE == YES) ? 24.0 : 0)
 
-#define normal_color (rgba(73, 81, 79, 1))
-#define dyt_btn_color (rgba(30, 163, 148, 1))
-
+#define normal_color (rgba(42, 40, 39, 1))
+#define dyt_btn_color (rgba(17, 195, 195, 1))
+#define dyt_bg_color (rgba(250, 250, 250, 1))
 
 //相对iphone6布局
 #define scale_w main_width / 375.0
